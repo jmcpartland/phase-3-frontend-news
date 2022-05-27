@@ -1,16 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { Router, Routes, Route } from 'react-router-dom';
+import Navigation from './components/Navigation';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>
-          project 3
-        </h1>
-        
-      </header>
-    </div>
+    <Router>
+      <Navigation />
+      <div className="App">
+        <h1>project 3</h1>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
