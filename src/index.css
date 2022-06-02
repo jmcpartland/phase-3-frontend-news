@@ -16,20 +16,38 @@ body {
 }
 #main > .nav, 
 #main > .aside {
-  flex: 0 0 20vw;
+  flex: 0 0 15vw;
   background: lightgray;
 }
-#main > nav {
+
+/* #main > nav {
   order: -1;
-}
-.header, .footer {
-  background: #5f2be2;
+} */
+
+.header {
+  display: flex;
+  align-items: center;
+  background: #126195;
   height: 10vh;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding: 1em;
 }
-.header, .footer, .article, .nav, .aside {
+.footer {
+  background: #126195;
+  height: 10vh;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   padding: 1em;
 }
 
+.article, .nav, .aside {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding: 1em;
+}
+.title {
+  font-size: 110px;
+  font-weight: 800;
+  color: white;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
