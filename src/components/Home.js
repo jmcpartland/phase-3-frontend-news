@@ -1,4 +1,5 @@
 import React from 'react';
+import { Routes, Route } from "react-router-dom";
 import Navigation from './Navigation';
 import Header from './Header';
 import Footer from './Footer';
@@ -10,11 +11,17 @@ function Home() {
       <div>
         <body>
           <Header />
-            <div id="main">
-              <Navigation />
-              <Article />
-              <Aside />
-            </div>
+        <div id="main">
+          {/* <Routes>
+            <Route exact path="/" element={<Home/>} />
+            <Route exact path="/articles" element={<Article/>} />
+          </Routes> */}
+          <Home />
+          <Article />
+          <Navigation />
+          <Article />
+          <Aside />
+        </div>
           <Footer />
         </body>
       </div>
