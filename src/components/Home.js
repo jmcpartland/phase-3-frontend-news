@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Navigation from './Navigation';
 import Header from './Header';
 import Footer from './Footer';
-import Article from './Article';
+import Center from './Center';
 import Aside from './Aside';
 
 function Home() {
@@ -17,9 +17,9 @@ function Home() {
             <Route exact path="/articles" element={<Article/>} />
           </Routes> */}
           <Home />
-          <Article />
+          <Center />
           <Navigation />
-          <Article />
+          <Center />
           <Aside />
         </div>
           <Footer />

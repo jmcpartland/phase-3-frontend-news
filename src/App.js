@@ -3,7 +3,7 @@ import Home from './components/Home';
 import Navigation from './components/Navigation';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Article from './components/Article';
+import Center from './components/Center';
 import Aside from './components/Aside';
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
         <Header />
         <div id="main">
           <Navigation />
-          <Article />
+          <Center />
           <Aside />
         </div>
         <Footer />
