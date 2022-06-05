@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 function Navigation() {
     return (
-      <dev className="nav">
+      <div className="nav">
         <p >Navigation</p>
         <nav>
             <ul>
@@ -27,7 +27,7 @@ function Navigation() {
                 </li>
             </ul>
         </nav>
-      </dev>
+      </div>
     )
 }
 

@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
 import Sources from './components/Sources';
 import Articles from './components/Articles';
 import Navigation from './components/Navigation';
@@ -9,13 +10,12 @@ import Aside from './components/Aside';
 
 function App() {
   return (
-    <div>
       <body>
         <Header />
         <div id="main">
           <Navigation />
           <Routes>
-            <Route exact path="/" element={<Center/>} />
+            <Route exact path="/" element={<Home/>} />
             <Route exact path="/sources" element={<Sources/>} />
             <Route exact path="/articles" element={<Articles/>} />
           </Routes>
@@ -23,7 +23,6 @@ function App() {
         </div>
         <Footer />
       </body>
-    </div>
   );
 }
 
