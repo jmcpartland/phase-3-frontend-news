@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-import Home from './components/Home';
+import Sources from './components/Sources';
+import Articles from './components/Articles';
 import Navigation from './components/Navigation';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -13,7 +14,11 @@ function App() {
         <Header />
         <div id="main">
           <Navigation />
-          <Center />
+          <Routes>
+            <Route exact path="/" element={<Center/>} />
+            <Route exact path="/sources" element={<Sources/>} />
+            <Route exact path="/articles" element={<Articles/>} />
+          </Routes>
           <Aside />
         </div>
         <Footer />

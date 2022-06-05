@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Center() {
+function Articles() {
     return (
         <div className="center">
-            <p>Home</p>
+            <p>Articles</p>
         </div>
     )
 }
 
-export default Center
+export default Articles

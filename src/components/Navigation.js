@@ -21,7 +21,7 @@ function Navigation() {
                 </li>
                 <li>
                 <NavLink 
-                    to="home" >
+                    to="/" >
                         Home
                 </NavLink>
                 </li>

@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Center() {
+function SourceLink({source}) {
     return (
         <div className="center">
-            <p>Home</p>
+            <p>{source.name}</p>
         </div>
     )
 }
 
-export default Center
+export default SourceLink
