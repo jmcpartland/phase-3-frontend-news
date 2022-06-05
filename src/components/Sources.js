@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import SourceLink from './SourceLink';
 
 function Sources() {
@@ -8,7 +9,7 @@ function Sources() {
         fetch("http://localhost:9292/sources")
         .then((r) => r.json())
         .then((data) => {
-            // console.log(data)
+            console.log(data)
             setSources(data)
         })
     }, [])
