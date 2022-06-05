@@ -1,12 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function SourceLink({source}) {
     return (
-        <div className="center">
-            <p>{source.name}</p>
-            <br>{source.articles[0]["author"]}</br>
-            <br>{source.articles.title}</br>
-            <br>{source.articles.url}</br>
+        <div className="source-list">
+            <Link to={`${source.id}`}>
+                <p>{source.name}</p>
+            </Link>
         </div>
     )
 }

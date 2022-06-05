@@ -20,9 +20,10 @@ body {
   background: lightgray;
 }
 
-/* #main > nav {
-  order: -1;
-} */
+.source-list {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
+}
 
 .header {
   display: flex;

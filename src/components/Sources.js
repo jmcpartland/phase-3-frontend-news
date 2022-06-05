@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import SourceLink from './SourceLink';
 
 function Sources() {
@@ -19,7 +18,7 @@ function Sources() {
     return (
         <div className="center">
             <p>Sources</p>
-            {sourcesList}
+                {sourcesList}
         </div>
     )
 }
