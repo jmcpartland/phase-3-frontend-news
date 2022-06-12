@@ -8,7 +8,7 @@ function Sources() {
         fetch("http://localhost:9292/sources")
         .then((r) => r.json())
         .then((data) => {
-            console.log(data)
+            // console.log(data)
             setSources(data)
         })
     }, [])
