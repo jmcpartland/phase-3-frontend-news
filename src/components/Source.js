@@ -2,8 +2,10 @@ import React, {useState, useEffect} from 'react';
 
 function Source() {
     const [source, setSource] = useState({
-        dogs: []
+        articles: []
     });
+
+    const [articleFormFlag, setArticleFormFlag] = useState(false)
 
     return (
         <div className="center">

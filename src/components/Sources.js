@@ -3,6 +3,7 @@ import SourceLink from './SourceLink';
 
 function Sources() {
     const [sources, setSources] = useState([])
+    const [sourceFormFlag, setSourceFormFlag] = useState(false)
 
     useEffect(() => {
         fetch("http://localhost:9292/sources")
