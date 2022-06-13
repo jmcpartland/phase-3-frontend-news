@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import Aside from './components/Aside';
 
 function App() {
+
   return (
       <body>
         <Header />
