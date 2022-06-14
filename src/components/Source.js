@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom'
+import Article from './Article';
 
 function Source(props) {
     const [source, setSource] = useState({
@@ -14,18 +15,18 @@ function Source(props) {
         fetch(`http://localhost:9292/sources/${params.id}`)
             .then(r => r.json())
             .then(d => {
+                console.log(d)
                 setSource(d)
             })
     }, [])
 
-    console.log(source)
 
-    const sourceArticles = source.articles.map((a) => a.title)
+    const sourceArticles = source.articles.map((a) => <Article key={a.id} article={a} />)
 
     return (
         <div className="center">
             <h3>{source.name}</h3>
-            <p>{sourceArticles}</p>
+            {sourceArticles}
         </div>
     )
 }
