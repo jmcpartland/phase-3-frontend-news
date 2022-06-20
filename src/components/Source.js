@@ -20,6 +20,18 @@ function Source(props) {
             })
     }, [])
 
+    const addArticle = (article) => {
+        fetch(`http://localhost:9292/articles`, {
+            method: "POST",
+            headers: {
+
+            },
+            body: JSON.stringify({
+                title: article.title,
+                source_id: params.id
+            })
+        })
+    }
 
     const sourceArticles = source.articles.map((a) => <Article key={a.id} article={a} />)
 
