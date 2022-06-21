@@ -1,7 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-function ArticleForm() {
-    const [newArticle, setNewArticle] = useState([])
+function ArticleForm({article}) {
+    const [newArticle, setNewArticle] = useState([]);
+
+    let params = useParams();
+    console.log(article);
 
     return (
         <div className="center">
