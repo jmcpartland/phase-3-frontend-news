@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import 
+
 function ArticleForm() {
     const [newArticle, setNewArticle] = useState([])
 
     return (
-        <div>ArticleForm</div>
+        <div className="center">
+            <h1>ArticleForm</h1>
+        </div>
     )
 }
 
