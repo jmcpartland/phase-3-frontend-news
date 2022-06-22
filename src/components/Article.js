@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Article({article}) {
 
@@ -10,6 +10,16 @@ function Article({article}) {
         navigate("/articles/new", article={article});
     }
 
+    const deleteArticle = (e) => {
+        fetch(`http://localhost:9292/articles/${article.id}`, {
+            method: "DELETE",
+            headers: {
+                'Content-type': 'application/json'
+            }
+        })
+    }
+
+
     return (
         <div className="center">
             <hr />
@@ -17,7 +27,8 @@ function Article({article}) {
             <span className="labelStyle">Title: </span> {article.title} <p />
             <span className="labelStyle">Author: </span> {article.author} <p />
             <span className="labelStyle">Description: </span> {article.description}  <p />
-            <button type="button" onClick={newArticle}>New</button>
+            <button type="button" onClick={newArticle}>New</button> 
+            <button type="button" onClick={deleteArticle}>Delete</button>
         </div>
     )
 }
