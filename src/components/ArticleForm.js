@@ -3,7 +3,10 @@ import { useParams } from 'react-router-dom';
 
 function ArticleForm({article}) {
     const [newArticle, setNewArticle] = useState([]);
-    const [articleTitle, setArticleTitle] = useState("")
+    const [articleTitle, setArticleTitle] = useState("");
+    const [articleDescription, setArticleDescription] = useState("");
+
+    const articleUrl = `http://localhost:9292/articles/${article.id}`;
 
     let params = useParams();
     // console.log(article);
@@ -14,8 +17,21 @@ function ArticleForm({article}) {
         console.log(event.target.value)
     }
 
-    function handleSubmit(event) {
-        // console.log(event)
+    function handleSubmit(e) {
+        e.preventDefault();
+        
+        console.log(articleTitle)
+
+        fetch(articleUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+            })
+        })
+        .then(response => response.json())
     }
 
 
@@ -28,6 +44,10 @@ function ArticleForm({article}) {
                     Article Title: 
                     <input value={articleTitle} onChange={handleChange} />
                 </label>
+                <label>
+                    Article Description: 
+                    <input value={articleDescription} onChange={handleChange} />
+                </label>               
                 <input type="submit" value="Submit" />
             </form>
         </div>
