@@ -13,18 +13,14 @@ function Article({article}) {
     }
 
 
-
     const deleteArticle = (e) => {
-        setCurrentArticle(article.id)  // NOT WORKING
-        console.log(currentArticle)
-
         fetch(`http://localhost:9292/articles/${article.id}`, {
             method: "DELETE",
             headers: {
                 'Content-type': 'application/json'
             }
         })
-        .then(() => setCurrentArticle(0))  // NOT WORKING
+        .then(() => navigate("/sources"))
         console.log(currentArticle)
     }
 

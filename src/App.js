@@ -3,6 +3,7 @@ import Home from './components/Home';
 import Sources from './components/Sources';
 import Source from './components/Source';
 import Articles from './components/Articles';
+import Article from './components/Article';
 import ArticleForm from './components/ArticleForm';
 import Navigation from './components/Navigation';
 import Header from './components/Header';
@@ -21,6 +22,7 @@ function App() {
             <Route exact path="/sources" element={<Sources/>} />
             <Route path="/sources/:id" element={<Source/>} />
             <Route exact path="/articles" element={<Articles/>} />
+            <Route exact path="/articles/:id" element={<Article/>} />
             <Route exact path="/articles/new" element={<ArticleForm/>} />
           </Routes>
           <Aside />
