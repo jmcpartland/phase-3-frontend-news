@@ -4,14 +4,7 @@ import { useNavigate } from 'react-router-dom';
 function Article({article}) {
 
     const [currentArticle, setCurrentArticle] = useState(0) // NOT WORKING
-
-    let navigate = useNavigate();
-
-    const newArticle = (e) => {
-        // console.log(e)
-        navigate("/articles/new", article={article});
-    }
-
+    const navigate = useNavigate();
 
     const deleteArticle = (e) => {
         fetch(`http://localhost:9292/articles/${article.id}`, {
@@ -24,12 +17,7 @@ function Article({article}) {
         console.log(currentArticle)
     }
 
-
-
-
-
     const updateArticle = (e) => {
-
         fetch(`http://localhost:9292/articles/${article.id}`, {
             method: "PUT",
             headers: {
@@ -46,7 +34,6 @@ function Article({article}) {
             <span className="labelStyle">Title: </span> {article.title} <p />
             <span className="labelStyle">Author: </span> {article.author} <p />
             <span className="labelStyle">Description: </span> {article.description}  <p />
-            <button type="button" onClick={newArticle}>New</button> 
             <button type="button" onClick={updateArticle}>Update</button>
             <button type="button" onClick={deleteArticle}>Delete</button>
         </div>

@@ -32,7 +32,7 @@ function ArticleForm({article}) {
         })
         .then(response => response.json())
         .then(data => {
-          setFormData({formData});
+          setFormData({})
         });
     }
 
@@ -76,7 +76,8 @@ function ArticleForm({article}) {
                         value={formData.source_id} 
                         onChange={handleChange}
                      />
-                <p />                <input type="submit" value="Submit" />
+                <p />                
+                <input type="submit" value="Submit" />
             </form>
         </div>
     )

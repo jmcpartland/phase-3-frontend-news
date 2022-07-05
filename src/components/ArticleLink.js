@@ -6,9 +6,7 @@ function ArticleLink({article}) {
 
     return (
         <div className="article-list">
-            <Link to={`/articles/${article.id}`}>
-                <p>{article.title}</p>
-            </Link>
+            <p>{article.title}</p>
         </div>
     )
 }
