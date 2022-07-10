@@ -32,7 +32,12 @@ function ArticleForm({article}) {
         })
         .then(response => response.json())
         .then(data => {
-          setFormData({})
+            setFormData({
+                title: "",
+                description: "",
+                author: "",
+                source_id: 0
+             })
         });
     }
 

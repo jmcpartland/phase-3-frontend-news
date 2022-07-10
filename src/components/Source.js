@@ -7,7 +7,7 @@ function Source(props) {
         articles: []
     });
 
-    const [articleFormFlag, setArticleFormFlag] = useState(false)
+    // const [articleFormFlag, setArticleFormFlag] = useState(false)
 
     let params = useParams();
 
@@ -25,17 +25,6 @@ function Source(props) {
     const newArticle = (e) => {
         // console.log(e)
         navigate("/articles/new");
-    }
-
-
-    const addArticle = (article) => {
-        fetch(`http://localhost:9292/articles`, {
-            method: "POST",
-            body: JSON.stringify({
-                title: article.title,
-                source_id: params.id
-            })
-        })
     }
 
     const sourceArticles = source.articles.map((a) => <Article key={a.id} article={a} />)

@@ -13,7 +13,7 @@ import Aside from './components/Aside';
 function App() {
 
   return (
-      <body>
+      <div>
         <Header />
         <div id="main">
           <Navigation />
@@ -28,7 +28,7 @@ function App() {
           <Aside />
         </div>
         <Footer />
-      </body>
+      </div>
   );
 }
 
