@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Route, useParams, useNavigate } from 'react-router-dom'
 
-const ArticleForm = ({article})  => {
+
+function ArticleUpdate({article}) {
     const articleUrl = 'http://localhost:9292/articles';
-    const navigate = useNavigate();
+
+    let params = useParams();
+
+    console.log(params)
 
     const [formData, setFormData] = useState({
         title: "",
@@ -21,12 +25,12 @@ const ArticleForm = ({article})  => {
         // console.log(event)
     }
 
-    const handleSubmit = (e) => {
+    function handleSubmit(e) {
         e.preventDefault();
         console.log(formData)
 
         fetch(articleUrl, {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -38,16 +42,15 @@ const ArticleForm = ({article})  => {
                 title: "",
                 description: "",
                 author: "",
-                source_id: ""
+                source_id: 0
              })
-             navigate("/articles")
         });
     }
 
 
     return (
         <div className="center">
-            <h1>New Article Form</h1>
+            <h1>Update Article Form</h1>
 
             <form onSubmit={handleSubmit}>
                 <label>Title: </label>
@@ -91,4 +94,4 @@ const ArticleForm = ({article})  => {
     )
 }
 
-export default ArticleForm
+export default ArticleUpdate

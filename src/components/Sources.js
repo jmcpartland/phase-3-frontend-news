@@ -3,12 +3,22 @@ import SourceLink from './SourceLink';
 
 function Sources() {
     const [sources, setSources] = useState([])
-
+    
     const [sourceName, setSourceName] = useState({
         name: ""
     });
-
+    
     const sourceUrl = 'http://localhost:9292/sources'
+    
+    useEffect(() => {
+        fetch(sourceUrl)
+        .then((r) => r.json())
+        .then((data) => {
+            // console.log(data)
+            setSources(data)
+        })
+    }, [])
+
 
     function handleChange(e) {
         setSourceName({name: e.target.value})
@@ -26,21 +36,17 @@ function Sources() {
             body: JSON.stringify(sourceName)
         })
         .then(response => response.json())
-        .then(data =>  setSourceName({
-            name: ""
-        })
+        .then((data) => {
+            setSourceName({
+                name: ""
+            })
+            setSources([...sources, data])
+            }
         )
     }
+
     
 
-    useEffect(() => {
-        fetch("http://localhost:9292/sources")
-        .then((r) => r.json())
-        .then((data) => {
-            // console.log(data)
-            setSources(data)
-        })
-    }, [])
 
     const sourcesList = sources.map(s => <SourceLink key={s.id} source={s} />)
 

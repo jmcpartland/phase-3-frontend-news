@@ -8,8 +8,8 @@ function Navigation() {
             <ul>
                 <li>
                 <NavLink
-                    to="/articles" >
-                    Articles
+                    to="/" >
+                    Home
                 </NavLink>
                 </li>
                 <li>
@@ -20,8 +20,8 @@ function Navigation() {
                 </li>
                 <li>
                 <NavLink 
-                    to="/" >
-                        Home
+                    to="/articles" >
+                    Articles
                 </NavLink>
                 </li>
             </ul>

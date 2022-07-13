@@ -3,10 +3,12 @@ import { useNavigate } from 'react-router-dom';
 
 function Article({article}) {
 
-    const [currentArticle, setCurrentArticle] = useState(0) // NOT WORKING
+    const [currentArticle, setCurrentArticle] = useState('') // NOT WORKING
     const navigate = useNavigate();
 
     const deleteArticle = (e) => {
+        e.preventDefault()
+
         fetch(`http://localhost:9292/articles/${article.id}`, {
             method: "DELETE",
             headers: {
@@ -14,10 +16,9 @@ function Article({article}) {
             }
         })
         .then(() => navigate("/sources"))
-        console.log(currentArticle)
     }
-
-    const updateArticle = (e) => {
+    
+    const Article = (e) => {
         fetch(`http://localhost:9292/articles/${article.id}`, {
             method: "PUT",
             headers: {
@@ -26,6 +27,12 @@ function Article({article}) {
             body: JSON.stringify()
         })
     }
+
+    const updateArticle = (e) => {
+        console.log(e.target)
+        navigate("/articles/updateForm", {article: article});
+    }
+
 
     return (
         <div className="center">
