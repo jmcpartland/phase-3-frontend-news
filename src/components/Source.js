@@ -15,7 +15,7 @@ function Source(props) {
         fetch(`http://localhost:9292/sources/${params.id}`)
             .then(r => r.json())
             .then(d => {
-                console.log(d)
+                // console.log(d)
                 setSource(d)
             })
     }, [])

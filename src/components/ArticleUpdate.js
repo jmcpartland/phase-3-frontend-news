@@ -7,7 +7,7 @@ function ArticleUpdate({article}) {
 
     let params = useParams();
 
-    console.log(params)
+    console.log(article)
 
     const [formData, setFormData] = useState({
         title: "",
@@ -30,7 +30,7 @@ function ArticleUpdate({article}) {
         console.log(formData)
 
         fetch(articleUrl, {
-            method: 'PUT',
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
             },
