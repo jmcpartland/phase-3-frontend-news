@@ -15,19 +15,14 @@ function Articles() {
         })
     }, [])
 
-    let navigate = useNavigate();
+    // let navigate = useNavigate();
 
-    const newArticle = (e) => {
-        // console.log(e)
-        navigate("/articles/new");
-    }
 
     const articlesList = articles.map(a => <ArticleLink key={a.id} article={a} />)
 
     return (
         <div className="center">
             <h1>Articles</h1>
-            <button type="button" onClick={newArticle}>Create New Article</button> 
                 {articlesList}
         </div>
     )

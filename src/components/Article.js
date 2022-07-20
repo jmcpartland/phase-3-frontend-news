@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Article({ article }) {
-
-    const [checked, setChecked] = useState(false)
+    const [isChecked, setIsChecked] = useState(false)
     const navigate = useNavigate();
-    
     
     const deleteArticle = (e) => {
         e.preventDefault()
@@ -18,28 +16,26 @@ function Article({ article }) {
         .then(() => navigate("/sources"))
     }
     
-    const handleChange = (e) => {
-        setChecked(e.target.value)
-
+    useEffect(() => {
+        console.log(isChecked)
         fetch(`http://localhost:9292/articles/${article.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({'read': checked})
+            body: JSON.stringify({
+                "read": isChecked
+            })
         })
         .then(response => response.json())
-        .then(data => {
-            console.log(checked)
-        });
 
-    }
+    }, [isChecked])
 
-    // function updateArticle(e) {
-    //     e.preventDefault()
-    //     console.log(e.target.value)
-    //     navigate("/articles/updateForm", {article: {article}});
-    // }
+    const handleChange = (e) => {
+        //setIsChecked(() => setIsChecked(!isChecked));
+        setIsChecked(!isChecked);
+        //.then(setIsChecked(!isChecked));
+        }
 
 
     return (
@@ -50,17 +46,13 @@ function Article({ article }) {
             <span className="labelStyle">Author: </span> {article.author} <p />
             <span className="labelStyle">Description: </span> {article.description}  <p />
 
-
             <span>Read: </span>
             <input 
                 type="checkbox" 
-                name="read" 
-                onChange={handleChange} 
-                checked={checked} 
+                checked={isChecked}
+                onChange={handleChange}
             />
-                <p />
-           
-           
+            <p />
             <button type="button" onClick={deleteArticle}>Delete</button>
         </div>
     )

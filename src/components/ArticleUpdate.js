@@ -42,7 +42,7 @@ function ArticleUpdate({article}) {
                 title: "",
                 description: "",
                 author: "",
-                source_id: 0
+                source_id: ""
              })
         });
     }
