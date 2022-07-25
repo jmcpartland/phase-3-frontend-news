@@ -17,7 +17,7 @@ function Article({ article }) {
     }
     
     useEffect(() => {
-        console.log(isChecked)
+        // console.log(isChecked)
         fetch(`http://localhost:9292/articles/${article.id}`, {
             method: 'PATCH',
             headers: {
@@ -35,7 +35,7 @@ function Article({ article }) {
         //setIsChecked(() => setIsChecked(!isChecked));
         setIsChecked(!isChecked);
         //.then(setIsChecked(!isChecked));
-        }
+    }
 
 
     return (
@@ -49,6 +49,7 @@ function Article({ article }) {
             <span>Read: </span>
             <input 
                 type="checkbox" 
+                value={article.read}
                 checked={isChecked}
                 onChange={handleChange}
             />

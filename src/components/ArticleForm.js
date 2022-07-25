@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const ArticleForm = ({article})  => {
+const ArticleForm = ({ createArticle, source })  => {
     const articleUrl = 'http://localhost:9292/articles';
     const navigate = useNavigate();
 
@@ -9,21 +9,20 @@ const ArticleForm = ({article})  => {
         title: "",
         description: "",
         author: "",
-        source_id: ""
+        source_id: source.id
     });
 
     const handleChange = (e) => {
         const name = e.target.name
         setFormData({
             ...formData,
-            [name]: e.target.value
+            [name]: e.target.value, source_id: source.id
         });
-        // console.log(event)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData)
+        // console.log(formData)
 
         fetch(articleUrl, {
             method: 'POST',
@@ -33,21 +32,19 @@ const ArticleForm = ({article})  => {
             body: JSON.stringify(formData)
         })
         .then(response => response.json())
-        .then(data => {
-            setFormData({
-                title: "",
-                description: "",
-                author: "",
-                source_id: ""
-             })
-             navigate("/articles")
-        });
+        .then(data => setFormData({
+            title: "",
+            description: "",
+            author: "",
+            source_id: ""
+        }))
+        .then(() => createArticle())
     }
 
 
     return (
         <div className="center">
-            <h1>New Article Form</h1>
+            <h3>New Article Form</h3>
 
             <form onSubmit={handleSubmit}>
                 <label>Title: </label>
@@ -77,13 +74,8 @@ const ArticleForm = ({article})  => {
                         onChange={handleChange}
                      />
                 <p />
-                <label>Source: </label>
-                    <input 
-                        type="number"
-                        name="source_id"
-                        value={formData.source_id} 
-                        onChange={handleChange}
-                     />
+                <label>Source: <b>{source.name}</b> </label>
+
                 <p />                
                 <input type="submit" value="Submit" />
             </form>
