@@ -5,7 +5,7 @@ import Source from './components/Source';
 import Articles from './components/Articles';
 import Article from './components/Article';
 import ArticleForm from './components/ArticleForm';
-import ArticleUpdate from './components/ArticleUpdate';
+// import ArticleUpdate from './components/ArticleUpdate';
 import Navigation from './components/Navigation';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -25,7 +25,7 @@ function App() {
             <Route exact path="/articles" element={<Articles/>} />
             <Route exact path="/articles/:id" element={<Article/>} />
             <Route exact path="/articles/new" element={<ArticleForm/>} />
-            <Route exact path="/articles/updateForm" element={<ArticleUpdate/>} />
+            {/* <Route exact path="/articles/updateForm" element={<ArticleUpdate/>} /> */}
           </Routes>
           <Aside />
         </div>

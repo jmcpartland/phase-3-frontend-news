@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Article({ article }) {
-    const [isChecked, setIsChecked] = useState(false)
+    const [isChecked, setIsChecked] = useState(article.read)
     const navigate = useNavigate();
     
     const deleteArticle = (e) => {
@@ -17,7 +17,6 @@ function Article({ article }) {
     }
     
     useEffect(() => {
-        // console.log(isChecked)
         fetch(`http://localhost:9292/articles/${article.id}`, {
             method: 'PATCH',
             headers: {
@@ -32,9 +31,7 @@ function Article({ article }) {
     }, [isChecked])
 
     const handleChange = (e) => {
-        //setIsChecked(() => setIsChecked(!isChecked));
         setIsChecked(!isChecked);
-        //.then(setIsChecked(!isChecked));
     }
 
 
@@ -49,7 +46,6 @@ function Article({ article }) {
             <span>Read: </span>
             <input 
                 type="checkbox" 
-                value={article.read}
                 checked={isChecked}
                 onChange={handleChange}
             />
